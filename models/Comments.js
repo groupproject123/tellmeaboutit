@@ -6,4 +6,4 @@ var CommentSchema = new mongoose.Schema({
   // rating: { type: String }
 });
 
-mongoose.model('ReviewComments', CommentSchema);
+mongoose.model('Comments', CommentSchema);

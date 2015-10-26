@@ -8,6 +8,7 @@
     vm.review={};
 
     vm.addReview = function(){
+	console.log("I'm here.");
       HomeFactory.createReview(vm.review).then(function(){
         $state.go('Home');
       });

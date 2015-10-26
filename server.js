@@ -36,14 +36,14 @@ app.get('/', function(req, res) {
 	res.render('index');
 });
 
-app.use('/api/user', userRoutes);
+// app.use('/api/user', userRoutes);
 app.use('/api/review', reviewRoutes);
 app.use('/api/comments', commentsRoutes);
 
-app.use(function(err,req,res,next){
-	console.log(err);
-	res.status(402).send(err);
-});
+// app.use(function(err,req,res,next){
+// 	console.log(err);
+// 	res.status(402).send(err);
+// });
 
 var server = app.listen(port, function() {
 	var host = server.address().address;
