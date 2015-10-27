@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
 var ReviewSchema =  new mongoose.Schema({
-  product: { type: String },
-  image: { type: String },
-  rating: { type: String },
-  description: { type: String },
-  user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+  name: String,
+  image: String,
+  rating: String,
+  description: String
 });
+
 mongoose.model('Review', ReviewSchema);

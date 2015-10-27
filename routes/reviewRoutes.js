@@ -5,8 +5,16 @@ var Review = mongoose.model('Review');
 var jwt = require('express-jwt');
 
 
+router.get('/', function(req,res,next){
+  Review.find({}, function(err,result){
+    if(err) return next(err);
+    res.send(result);
+  });
+});
+
 
 router.post('/',function(req,res,next){
+  console.log(req.body);
   var description = new Review(req.body);
   description.save(function(err,result){
     if(err) return next(err);

@@ -8,6 +8,8 @@ require('./models/User');
 require('./models/Review');
 require('./models/Comments');
 
+mongoose.connect('mongodb://localhost/hello');
+
 
 
 app.set('views', path.join(__dirname, 'views'));
