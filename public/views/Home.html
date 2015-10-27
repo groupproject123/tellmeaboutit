@@ -12,22 +12,56 @@
 	</div>
 </div> -->
 
+<!-- <div ng-controller="HomeController as vm">
+	<div layout="row" layout-wrap>
+	  <div flex="25">
+
+	  </div>
+	  <div flex="">
+			<div ng-repeat='a in vm.reviews'>
+			<md-card>
+					<img ng-src="{{a.image}}" class="md-card-image img-responsive"/>
+					<md-card-content>
+						<h1 class="md-title">Product Name/Brand: {{a.name}}</h1>
+						<h2 class="md-title">Rating: {{a.rating}}/5 Points</h2>
+						<h2 class="md-title">Review: {{a.description}}</h2>
+					</md-card-content>
+					<div class="md-actions" layout="row" layout-align="end center">
+						<md-button>Check this Review!</md-button>
+
+					</div>
+				</md-card>
+			</div>
+	  </div>
+
+		<div flex="25">
+
+	  </div>
+	</div>
+</div> -->
+
+<!--  another way -->
 <div ng-controller="HomeController as vm">
-	<div ng-repeat='a in vm.reviews'>
-<md-card>
-      <img ng-src="{{a.image}}" class="md-card-image img-responsive"/>
-      <md-card-content>
-        <h1 class="md-title">Product Name/Brand: {{a.name}}</h1>
-				<h2 class="md-title">Rating: {{a.rating}}/5 Points</h2>
-				<h2 class="md-title">Review: {{a.description}}</h2>
+	<div layout="row" layout-wrap>
+	<div flex="20">
 
-
-
-      </md-card-content>
-      <div class="md-actions" layout="row" layout-align="end center">
-        <md-button>Check this Review!</md-button>
-        <!-- <md-button>Action 2</md-button> -->
-      </div>
-    </md-card>
 	</div>
+	<div flex="">
+  <md-content>
+    <md-list>
+      <md-list-item class="md-6-line" ng-repeat='a in vm.reviews'>
+				<img ng-src="{{a.image}}" class="md-image"/>
+        <div class="md-list-item-text">
+					<h1 class="md-title">Product Name/Brand: {{a.name}}</h1>
+					<h2 class="md-title">Rating: {{a.rating}}/5 Points</h2>
+					<h2 class="md-title">Review: {{a.description}}</h2>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</div>
+	<div flex="10">
+
 	</div>
+</div>
+</div>
