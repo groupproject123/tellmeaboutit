@@ -7,8 +7,7 @@ var mongoose = require('mongoose');
 require('./models/User');
 require('./models/Review');
 require('./models/Comments');
-
-mongoose.connect('mongodb://localhost/hello');
+mongoose.connect('mongodb://localhost/tellmeaboutit');
 
 
 
