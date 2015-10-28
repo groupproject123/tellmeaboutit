@@ -55,7 +55,11 @@
 					<h1 class="md-title">Product Name/Brand: {{a.name}}</h1>
 					<h2 class="md-title">Rating: {{a.rating}}/5 Points</h2>
 					<h2 class="md-title">Review: {{a.description}}</h2>
+
         </div>
+				<md-button ui-sref="DetailReview({id: a._id})" class="md-accent md-raised">Check this Review</md-button>
+				<br>
+				<md-button ng-click="vm.reviews.splice($index, 1);" class="md-accent md-raised">Delete</md-button>
       </md-list-item>
     </md-list>
   </md-content>

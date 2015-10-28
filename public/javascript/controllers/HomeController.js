@@ -12,7 +12,7 @@
 
 			console.log(res);
 			vm.reviews = res;
-			$state.go('Home');
+			// $state.go('Home');
 
 		});
 

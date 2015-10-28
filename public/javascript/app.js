@@ -2,7 +2,7 @@
 	'use strict';
 	angular.module('app', ['ui.router','ngMaterial'])
 	.config(Config);
-	function Config($stateProvider, $urlRouterProvider, $mdThemingProvider) {
+	function Config($stateProvider, $urlRouterProvider, $mdThemingProvider, $httpProvider) {
 		$mdThemingProvider.theme('default')
 		.primaryPalette('amber', {
 			'default': '400', // by default use shade 400 from the pink palette for primary intentions
@@ -28,7 +28,11 @@
 		}).state('Login_Register',{
 			url:'/login_register',
 			templateUrl:'views/Login_Register.html'
+		}).state('DetailReview',{
+			url: '/detailreview/:id',
+			templateUrl: 'views/detailreview.html'
 		});
 		$urlRouterProvider.otherwise('/');
+		$httpProvider.interceptors.push('AuthInterceptor');
 	}
 })();
