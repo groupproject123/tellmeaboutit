@@ -12,7 +12,7 @@
 	</div>
 </div> -->
 
-<!-- <div ng-controller="HomeController as vm">
+<div ng-controller="HomeController as vm">
 	<div layout="row" layout-wrap>
 	  <div flex="25">
 
@@ -24,10 +24,11 @@
 					<md-card-content>
 						<h1 class="md-title">Product Name/Brand: {{a.name}}</h1>
 						<h2 class="md-title">Rating: {{a.rating}}/5 Points</h2>
-						<h2 class="md-title">Review: {{a.description}}</h2>
+						<!-- <h2 class="md-title">Review: {{a.description}}</h2> -->
 					</md-card-content>
 					<div class="md-actions" layout="row" layout-align="end center">
-						<md-button>Check this Review!</md-button>
+						<md-button ui-sref="DetailReview({id: a._id})" class="md-accent md-raised">Check this Review</md-button>
+						<!-- <md-button ng-click="vm.startEdit(a._id);" class="md-accent md-raised">Edit this Review</md-button> -->
 
 					</div>
 				</md-card>
@@ -38,10 +39,10 @@
 
 	  </div>
 	</div>
-</div> -->
+</div>
 
 <!--  another way -->
-<div ng-controller="HomeController as vm">
+<!-- <div ng-controller="HomeController as vm">
 	<div layout="row" layout-wrap>
 	<div flex="20">
 
@@ -64,4 +65,4 @@
 
 	</div>
 </div>
-</div>
+</div> -->

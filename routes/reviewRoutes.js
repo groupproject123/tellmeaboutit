@@ -5,6 +5,14 @@ var Review = mongoose.model('Review');
 var jwt = require('express-jwt');
 
 
+router.put('/', function(req, res, next){
+  console.log(req.body);
+  Review.update({_id: req.body.reviewId}, req.body.edittedReview, function(err, result){
+    if(err)return next(err);
+  });
+});
+
+
 router.get('/', function(req,res,next){
   Review.find({}, function(err,result){
     if(err) return next(err);
@@ -21,19 +29,6 @@ router.post('/',function(req,res,next){
     res.send(result);
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 module.exports = router;

@@ -23,12 +23,15 @@
 			url:'/createreview',
 			templateUrl:'views/CreateReview.html'
 		}).state('EditReview',{
-			url:'/editreview',
+			url:'/editreview/:id',
 			templateUrl:'views/EditReview.html'
 		}).state('Login_Register',{
 			url:'/login_register',
 			templateUrl:'views/Login_Register.html'
+		}).state('DetailReview',{
+			url: '/detailreview/:id',
+			templateUrl: 'views/detailreview.html'
 		});
-		$urlRouterProvider.otherwise('/');
+	//	$urlRouterProvider.otherwise('/');
 	}
 })();

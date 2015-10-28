@@ -2,13 +2,26 @@
 	'use strict';
 	angular.module('app')
 	.factory('HomeFactory', HomeFactory);
-
-
-
 	function HomeFactory($http, $q) {
 		var o = {};
 
+// This works with the DetailReviewController
+		o.getReviewById = function(id){
+			var q = $q.defer();
+			$http.get('/api/review/' + id).then(function(res){
+				q.resolve(res.data);
+			});
+			return q.promise;
+		};
 
+		// o.editReview = function(edittedReviewObj){
+		// 	console.log(edittedReviewObj);
+		// 	var q = $q.defer();
+		// 	$http.put('api/review', edittedReviewObj).then(function(res){
+		// 		q.resolve(res.data);
+		// 	});
+		// 	return q.promise;
+		// };
 
 		o.createReviews = function(review){
 			console.log(review);
@@ -22,7 +35,7 @@
 		o.getReviews = function(){
 			var q  = $q.defer();
 			$http.get('/api/review').then(function(res){
-				console.log(res.data);
+				//console.log(res.data);
 				q.resolve(res.data);
 			});
 			return q.promise;
