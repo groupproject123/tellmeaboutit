@@ -5,6 +5,15 @@
 	function HomeFactory($http, $q) {
 		var o = {};
 
+//DELETE review from the database.
+		o.deleteReview = function(id){
+			var q = $q.defer();
+			$http.delete('/api/review/' + id).then(function(){
+				q.resolve();
+			});
+			return q.promise;
+		};
+
 // This works with the DetailReviewController
 		o.getReviewById = function(id){
 			var q = $q.defer();

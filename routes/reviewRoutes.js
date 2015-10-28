@@ -4,6 +4,20 @@ var mongoose = require('mongoose');
 var Review = mongoose.model('Review');
 var jwt = require('express-jwt');
 
+//DELETE Review from the database.
+router.delete('/:id', function(req, res, next){
+  Review.remove({_id: req.params.id}, function(err, result){
+    if(err) return next (err);
+    res.send();
+  });
+});
+
+router.get('/:id', function(req, res, next){
+  Review.findOne({_id: req.params.id}, function(err, result){
+    if(err) return next(err);
+    res.send(result);
+  });
+});
 
 router.put('/', function(req, res, next){
   console.log(req.body);
@@ -19,7 +33,6 @@ router.get('/', function(req,res,next){
     res.send(result);
   });
 });
-
 
 router.post('/',function(req,res,next){
   console.log(req.body);

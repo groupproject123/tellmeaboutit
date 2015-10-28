@@ -5,3 +5,12 @@
   border:0;
   border-top:none;
 }
+
+.fontfantasy{
+  font-family: fantasy;
+}
+
+.body {
+        font-family: 'Tangerine', serif;
+        font-size: 48px;
+      }
