@@ -2,9 +2,6 @@
 	'use strict';
 	angular.module('app')
 	.factory('HomeFactory', HomeFactory);
-
-
-
 	function HomeFactory($http, $q) {
 		var o = {};
 
@@ -32,7 +29,7 @@
 		o.getReviews = function(){
 			var q  = $q.defer();
 			$http.get('/api/review').then(function(res){
-				console.log(res.data);
+				//console.log(res.data);
 				q.resolve(res.data);
 			});
 			return q.promise;

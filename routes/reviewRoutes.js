@@ -6,10 +6,18 @@ var jwt = require('express-jwt');
 
 
 
+
 router.get('/:id',function(req,res,next){
   Review.findOne({_id:req.params.id}, function(err,result){
     if(err) return next(err);
     res.send(result);
+  });
+});
+
+router.put('/', function(req, res, next){
+  console.log(req.body);
+  Review.update({_id: req.body.reviewId}, req.body.edittedReview, function(err, result){
+    if(err)return next(err);
   });
 });
 
@@ -30,19 +38,6 @@ router.post('/',function(req,res,next){
     res.send(result);
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 module.exports = router;

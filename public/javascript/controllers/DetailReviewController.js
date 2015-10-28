@@ -3,6 +3,7 @@
 	angular.module('app')
 	.controller('DetailReviewController', DetailReviewController);
 	function DetailReviewController(HomeFactory,$state, $stateParams) {
+
     var vm = this;
     vm.newReview = {};
 
@@ -14,6 +15,7 @@
 
 vm.addComment = function(){
 
+
   // var comment = {
   //   body: vm.newComment,
   //   review: $stateParams.id
@@ -21,9 +23,11 @@ vm.addComment = function(){
 
   HomeFactory.addComment(vm.review._id, vm.newComment).then(function(res){
     vm.newComment = {};
+
     vm.review.comments.push(res);
   });
 };
+
 
 // vm.deleteComment = function(comment){
 //   vm.review.comments.splice(vm.review.comments.indexOf(comment), 1);

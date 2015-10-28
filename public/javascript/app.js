@@ -23,7 +23,7 @@
 			url:'/createreview',
 			templateUrl:'views/CreateReview.html'
 		}).state('EditReview',{
-			url:'/editreview',
+			url:'/editreview/:id',
 			templateUrl:'views/EditReview.html'
 		}).state('Login_Register',{
 			url:'/login_register',
@@ -32,7 +32,10 @@
 			url: '/detailreview/:id',
 			templateUrl: 'views/detailreview.html'
 		});
+
 		$urlRouterProvider.otherwise('/');
 		$httpProvider.interceptors.push('AuthInterceptor');
+
+	//	$urlRouterProvider.otherwise('/');
 	}
 })();
