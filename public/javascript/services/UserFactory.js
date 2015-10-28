@@ -19,7 +19,7 @@
       console.log(user);
       var q = $q.defer();
       $http.post('/api/user/register', user).then(function(res) {
-        o.setToken(res.data);
+        setToken(res.data);
         setUser();
         var user  = o.getUser();
         o.status.username = user.username;
@@ -31,7 +31,7 @@
 
     o.loginUser = function(user) {
       var q = $q.defer();
-      $http.post('/pi/user/login', user).then(function(res) {
+      $http.post('/api/user/login', user).then(function(res) {
         setToken(res.data);
         setUser();
         var user = o.getUser();

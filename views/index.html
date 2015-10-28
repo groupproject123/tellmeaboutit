@@ -9,22 +9,33 @@
 	<link rel="stylesheet" type="text/css" href="/css/site.css">
 	<link rel="stylesheet" href="/angular-material/angular-material.css">
 </head>
-<body>
+<body ng-controller="GlobalController as nav">
 
 
 <!-- <div ng-controller="GlobalController as nav"> -->
-	<div layout="column" ng-controller="GlobalController as nav" ng-cloak>
+	<div layout="column" ng-cloak>
 	  <md-content class="md-padding" layout="colum">
 
 	    <md-toolbar id="Background">
+				<div style="text-align:right">
 	      <h3 class="md-toolbar-tools md-toolbar-tools-bottom">
 	        <md-button ui-sref="Home">Home</md-button>
 					<md-button ui-sref="CreateReview">Create Reviews</md-button>
-	        <md-button ui-sref="Login_Register" >Login/Register</md-button>
+	        <md-button ui-sref="Login_Register" ng-show="!nav.status.username">Login/Register</md-button>
+					<md-button ng-click="nav.logout()" ng-show="nav.status.username">Logout</md-button>
 	      </h3>
+			</div>
 	    </md-toolbar>
-
 	  </md-content>
+		</div>
+
+
+		<!-- Show this if the user IS logged in -->
+<md-divider>
+		<div layout="row" layout-align="center" class="nav navbar-nav navbar-right" ng-show="nav.status.username">
+			<h1>Glad to See You, {{nav.status.username}}</h1>
+		</div>
+			</md-divider>
 	  <!-- <md-content class="md-padding" layout="row" layout-sm="column" layout-align="space-around">
 	    <div flex-gt-sm="45">
 

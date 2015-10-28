@@ -6,7 +6,7 @@ var passport = require('passport');
 
 router.post('/register', function(req, res, next) {
   var user = new User(req.body);
-  user.setPassowrd(req.body.password);
+  user.setPassword(req.body.password);
   user.save(function(err, result) {
     if(err) return next(err);
     if(!result) return next('There was an issue registering that user.');
