@@ -9,7 +9,9 @@ var auth = jwt({
   secret:'secret'
 });
 
-
+// router.param('/:reviewId', function(req, res, next){
+//   console.log(req.body);
+// });
 
 router.get('/',function(req,res,next){
   console.log(req.params.id);
@@ -19,20 +21,28 @@ router.get('/',function(req,res,next){
   });
 });
 
-router.post('/:id', auth, function(req,res,next){
-  var comment = {
-    body:req.body.body,
-    user:req.payload._id
-  };
+// router.post('/:reviewId', auth, function(req,res,next){
+//   console.log(req.body);
+//   var comment = new Comment(req.body);
+//     comment.review = req.review._id;
+//     comment.save(function(err,result){
+//       if(err) return next(err);
+//       res.send(result);
+//
+//       req.review.comments.push(commentResult._id);
+//       req.review.save(function(err, review){
+//         console.log(review);
+//         res.send(commentResult);
+//       });
+//     });
+//  });
+      // Review.findOne({_id: req.params.id},function(err,review){
+      //   if(err) return next(err);
+      //   review.comments.push(comment);
+      //   review.save(function(err,reviews){
+      //     res.send(review);
 
-      Review.findOne({_id: req.params.id},function(err,review){
-        if(err) return next(err);
-        review.comments.push(comment);
-        review.save(function(err,reviews){
-          res.send(review);
-    });
-  });
-});
+
 
 
 

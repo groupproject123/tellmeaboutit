@@ -36,7 +36,7 @@
 		};
 
 
-		o.addComment = function(comment, reviewId){
+		o.createComment = function(reviewId, comment){
 			var q= $q.defer();
 			$http.post('/api/comments/' + reviewId, comment).then(function(res){
 				q.resolve(res.data);

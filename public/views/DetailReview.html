@@ -2,7 +2,6 @@
 	<div layout="row" layout-wrap>
 
 					<img ng-src="{{vm.review.image}}" class="md-card-image img-responsive"/>
-
 					<div>
 						<h1 class="md-title">Product Name/Brand: {{vm.review.name}}</h1>
 						<h2 class="md-title">Rating: {{vm.review.rating}}/5 Points</h2>
@@ -11,36 +10,29 @@
 					<div class="md-actions" layout="row" layout-align="end center">
 						<md-button ui-sref="EditReview({id: a._id})" class="md-accent md-raised">Edit this Review</md-button>
 						<!-- <md-button ng-click="vm.startEdit(a._id);" class="md-accent md-raised">Edit this Review</md-button> -->
-
-
-
-
-						<!-- Example:  ng-click="vm.survey.answers.splice($index, 1) -->
-						<!-- in the EditReview I put inside id: $index to grab the exact product that I clicking in. This $index is gonna give me the index in the array. -->
-
 					</div>
-
 			</div>
 
 
 
-	  </div>
-  <div>
-
-
-		<div ng-repeat="c in vm.review.comments">
-			<h3>{{c.user}} : {{c.body}}</h3>
-			<md-button class="md-accent md-raised" ng-click="vm.deleteComment(c)">Delete</md-button>
-		</div>
-
-</div>
 <div>
 	<div style="text-align:center;">
 		<md-button class="md-accent md-raised" ng-show="!addComment" ng-click="addComment = true;">Add Comment</md-button>
+
 		<md-content class="form-inline" ng-show="addComment">
-			<input type='text' class="form-control" ng-model="vm.newComment.body" placeholder="Comment...">
+			<input type='text' class="form-control" ng-model="vm.newComment" placeholder="Comment...">
 			<md-button  class="md-accent md-raised" ng-click="addComment = false; vm.addComment();">Submit</md-button>
 			<md-button class="md-accent md-raised" ng-click="addComment = false;">Cancel</md-button>
 		</md-content>
 	</div>
+</div>
+</div>
+
+
+<div>
+		<ul ng-repeat="c in vm.comments">
+			<h1>{{c.user}} | {{c.body}}</h1>
+
+			<md-button class="md-accent md-raised" ng-click="vm.deleteComment(c)">Delete</md-button>
+		</ul>
 </div>
