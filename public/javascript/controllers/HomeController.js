@@ -6,6 +6,8 @@
 	function HomeController(HomeFactory, $state) {
 		var vm = this;
 
+
+
 		HomeFactory.getReviews().then(function(res){
 			//console.log(res);
 			vm.reviews = res;

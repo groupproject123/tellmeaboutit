@@ -1,42 +1,44 @@
 <div ng-controller="DetailReviewController as vm">
-	<div layout="row" layout-wrap>
+	<div flex-offset="10">
+	<div class="md-actions" layout="row" layout-align="end center">
+		<md-card ng-repeat='a in vm.reviews'>
+				<img ng-src="{{a.image}}" class="md-card-image img-responsive"/>
+				<md-card-content>
+					<h1 class="md-title">Product Name/Brand: {{a.name}}</h1>
+					<h2>Rating: {{a.rating}}/5 Points</h2>
+					<h2>Review: {{a.description}}</h2>
+				</md-card-content>
+				<div class="md-actions" layout="row" layout-align="end center">
+					<md-button ui-sref="EditReview({id: a._id})" class="md-accent md-raised">Edit this Review</md-button>
+				</div>
+			</md-card>
+	</div>
 
-					<img ng-src="{{vm..image}}" class="md-card-image img-responsive"/>
-					<div>
-						<h1 class="md-title">Product Name/Brand: {{vm.review.name}}</h1>
-						<h2 class="md-title">Rating: {{vm.review.rating}}/5 Points</h2>
-						<h2 class="md-title">Review: {{vm.review.description}}</h2>
-					</div>
-					<div class="md-actions" layout="row" layout-align="end center">
-						<md-button ui-sref="EditReview({id: a._id})" class="md-accent md-raised">Edit this Review</md-button>
-						<!-- <md-button ng-click="vm.startEdit(a._id);" class="md-accent md-raised">Edit this Review</md-button> -->
-
-						
-						<!-- Example:  ng-click="vm.survey.answers.splice($index, 1) -->
-						<!-- in the EditReview I put inside id: $index to grab the exact product that I clicking in. This $index is gonna give me the index in the array. -->
-
-					</div>
-
-			</div>
-	  </div>
-  <div>
-
-
-		<div ng-repeat="c in vm.review.comments">
-			{{c.user.username}} : {{c.body}}
-			<md-button class="md-accent md-raised" ng-click="vm.deleteComment(c)">Delete</md-button>
-		</div>
-
-</div>
-<div>
+<!-- ADD COMMENT -->
 	<div style="text-align:center;">
 		<md-button class="md-accent md-raised" ng-show="!addComment" ng-click="addComment = true;">Add Comment</md-button>
-		<md-content class="form-inline" ng-show="addComment">
-			<input class="form-control" ng-model="vm.newComment" placeholder="Comment...">
+		<md-content class="form-inline" ng-show="addComment"></md-content>
+		<md-input-container layout-align="center">
+			<input type='text' class="form-control" ng-model="vm.newComment" placeholder="Comment...">
+		</md-input-container>
 			<md-button  class="md-accent md-raised" ng-click="addComment = false; vm.addComment();">Submit</md-button>
 			<md-button class="md-accent md-raised" ng-click="addComment = false;">Cancel</md-button>
-		</md-content>
+
 	</div>
-</div>
+
+<!-- DISPLAY COMMENTS  -->
+<div class="md-actions" layout="row" layout-align="end center">
+		<md-card ng-repeat="c in vm.comments">
+			<md-content class="well container" layout-align="center">
+			<h6>Posted By:{{c.user}}</h6>
+			<h2>Comment: {{c.body}}</h1>
+			<br>
+			<md-button class="md-accent" ng-click="vm.deleteComment(c)">Delete</md-button>
+		</md-content class="well container">
+	</md-card>
+	</div>
+
+
+
 </div>
 </div>

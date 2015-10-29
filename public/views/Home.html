@@ -13,13 +13,16 @@
 </div> -->
 
 <div ng-controller="HomeController as vm">
+	<br>
+  <h1 style="color:black; text-align:center;">Products Reviews!</h1>
+	<br>
 	<div layout="row" layout-wrap>
-	  <div flex="25">
+	  <!-- <div flex="25">
 
-	  </div>
-	  <div flex="">
-			<div ng-repeat='a in vm.reviews'>
-			<md-card>
+	  </div> -->
+	  <div flex-offset="10">
+		<div class="md-actions" layout="row" layout-align="end center">
+			<md-card ng-repeat='a in vm.reviews'>
 					<img ng-src="{{a.image}}" class="md-card-image img-responsive"/>
 					<md-card-content>
 						<h1 class="md-title">Product Name/Brand: {{a.name}}</h1>
@@ -28,17 +31,16 @@
 					</md-card-content>
 					<div class="md-actions" layout="row" layout-align="end center">
 						<md-button ui-sref="DetailReview({id: a._id})" class="md-accent md-raised">Check this Review</md-button>
-						<md-button ng-click="vm.deleteReview(a._id)" class="md-accent md-raised">Delete</md-button>
-						<!-- <md-button ng-click="vm.startEdit(a._id);" class="md-accent md-raised">Edit this Review</md-button> -->
 
+						<md-button ng-click="vm.deleteReview(a._id)" class="md-accent md-raised">Delete</md-button>
 					</div>
 				</md-card>
-			</div>
-	  </div>
-
-		<div flex="25">
 
 	  </div>
+
+		<!-- <div flex="25">
+
+	  </div> -->
 	</div>
 </div>
 
@@ -57,7 +59,11 @@
 					<h1 class="md-title">Product Name/Brand: {{a.name}}</h1>
 					<h2 class="md-title">Rating: {{a.rating}}/5 Points</h2>
 					<h2 class="md-title">Review: {{a.description}}</h2>
+
         </div>
+				<md-button ui-sref="DetailReview({id: a._id})" class="md-accent md-raised">Check this Review</md-button>
+				<br>
+				<md-button ng-click="vm.reviews.splice($index, 1);" class="md-accent md-raised">Delete</md-button>
       </md-list-item>
     </md-list>
   </md-content>

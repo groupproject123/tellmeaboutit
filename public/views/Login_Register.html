@@ -1,6 +1,10 @@
 <br>
 <div ng-show="nav.isLogin">
-  <form class="well container" ng-submit="nav.loginUser()">
+<div layout="row" layout-wrap>
+  <div flex="30">
+  </div>
+  <div flex="">
+  <md-content class="well container" ng-submit="nav.loginUser()">
     <h1>Sign In</h1>
 
     <md-input-container>
@@ -17,13 +21,22 @@
     <input type="password" class="form-control" required placeholder="Password..." ng-model="nav.user.password"> -->
 ​
     <div style="text-align: center">
-      <md-button ng-click="nav.isLogin = false;" class="md-raised md-primary">Register</md-button>
-      <md-button type="submit" class="md-raised md-warn" >Login</button>
+      <md-button ng-click="nav.isLogin = false;" class="md-accent md-raised">Register</md-button>
+      <md-button type="submit" class="md-accent md-raised" >Login</button>
     </div>
-  </form>
+  </md-content>
 </div>
+<div flex="30">
+</div>
+</div>
+</div>
+
 ​
 <div ng-show="!nav.isLogin">
+  <div layout="row" layout-wrap>
+    <div flex="20">
+    </div>
+    <div flex="">
   <form class="well container" ng-submit="nav.registerUser()">
     <h1>Registration</h1>
 
@@ -52,8 +65,13 @@
     <div ng-show="nav.user.password && nav.user.confirmPassword && !(nav.user.password === nav.user.confirmPassword)" style="color: red">Your passwords must match.</div>
 ​
     <div style="text-align:center">
-      <md-button type="button" ng-click="nav.isLogin = true;" class="md-primary md-hue-1">Login</md-button>
-      <md-button type="submit" class="md-accent">Submit</md-button>
+      <md-button type="button" ng-click="nav.isLogin = true;" class="md-accent md-raised">Login</md-button>
+      <md-button type="submit" class="md-accent md-raised">Submit</md-button>
     </div>
+  </div>
   </form>
+  <div flex="20">
+  </div>
+
+</div>
 </div>

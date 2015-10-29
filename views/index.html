@@ -5,65 +5,43 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap_theme.css"> -->
-
+	<!-- <link rel="stylesheet" href="animate.min.css"> -->
 	<link rel="stylesheet" type="text/css" href="/css/site.css">
 	<link rel="stylesheet" href="/angular-material/angular-material.css">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+	<link href='https://fonts.googleapis.com/css?family=Rubik|Rambla|Permanent+Marker' rel='stylesheet' type='text/css'>
+
 </head>
-<h1 class="fontfantasy"> tellmeabout.it </h1>
-<h1 class="body"> Example here</h1>
+<!-- <div layout="row"
+<h1 class="body">tellmeabout.it</h1>
+</div> -->
+
+<!-- Show this if the user IS logged in -->
+<div layout-align="center" layout="row">
+	<h1 style="text-alight:center" id="Titulo" class="animated flipInX">tellmeabout.it</h1>
+<div layout="row" layout-align="center" class="nav navbar-nav" ng-show="nav.status.username">
+	<h1 style="text-alight:center" class="NavFont">Glad to see you, {{nav.status.username}}!</h1>
 </div>
+</div>
+
 <body ng-controller="GlobalController as nav">
 
 
 <!-- <div ng-controller="GlobalController as nav"> -->
 	<div layout="column" ng-cloak>
-	  <md-content class="md-padding" layout="colum">
+	  <md-content class="md-padding" layout="row">
 
 	    <md-toolbar id="Background">
 				<div style="text-align:right">
-	      <h3 class="md-toolbar-tools md-toolbar-tools-bottom">
-	        <md-button ui-sref="Home">Home</md-button>
-					<md-button ui-sref="CreateReview">Create Reviews</md-button>
-	        <md-button ui-sref="Login_Register" ng-show="!nav.status.username">Login/Register</md-button>
-					<md-button ng-click="nav.logout()" ng-show="nav.status.username">Logout</md-button>
+	      <h3 layout-align="right" class="md-toolbar-tools md-toolbar-tools-bottom">
+	        <md-button class="NavFont" ui-sref="Home">Home</md-button>
+					<md-button class="NavFont" ui-sref="CreateReview">Create Reviews</md-button>
+					<md-button  class="NavFont" ui-sref="Login_Register" ng-show="!nav.status.username">Login/Register</md-button>
+					<md-button  class="NavFont" ng-click="nav.logout()" ng-show="nav.status.username">Logout</md-button>
 	      </h3>
 			</div>
 	    </md-toolbar>
 	  </md-content>
 		</div>
-
-
-		<!-- Show this if the user IS logged in -->
-<md-divider>
-		<div layout="row" layout-align="center" class="nav navbar-nav navbar-right" ng-show="nav.status.username">
-			<h1>Glad to See You, {{nav.status.username}}</h1>
-		</div>
-			</md-divider>
-	  <!-- <md-content class="md-padding" layout="row" layout-sm="column" layout-align="space-around">
-	    <div flex-gt-sm="45">
-
-	    </div>
-	  </md-content> -->
-
-	  <!-- <script type="text/ng-template" id="dialog.html">
-	    <md-dialog>
-	      <md-toolbar>
-	        <div class="md-toolbar-tools">Cool Dialog!</div>
-	      </md-toolbar>
-	      <md-dialog-content layout-padding>
-	        Hello user! you clicked {{dialog.item.name}}.
-	      </md-dialog-content>
-	      <div class="md-actions">
-	        <md-button aria-label="Close dialog" ng-click="dialog.close()" class="md-primary">
-	          Close Greeting
-	        </md-button>
-	        <md-button aria-label="Submit dialog" ng-click="dialog.submit()" class="md-primary">
-	          Submit
-	        </md-button>
-	      </div>
-	    </md-dialog>
-	  </script> -->
 	</div>
 
 </div>
@@ -86,8 +64,13 @@
 	<script src="/javascript/controllers/HomeController.js"></script>
 	<script src="/javascript/controllers/GlobalController.js"></script>
 	<script src="/javascript/controllers/CreateController.js"></script>
-	<script src="/javascript/controllers/EditController.js"></script>
+
 	<script src="/javascript/controllers/DetailReviewController.js"></script>
+
+
+	<script src="/javascript/controllers/EditController.js"></script>
+
+
 
 
 

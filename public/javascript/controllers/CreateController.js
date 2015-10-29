@@ -7,7 +7,7 @@
 		vm.review={};
 
     vm.addReviews = function(){
-	console.log(vm.review);
+	 console.log(vm.review);
       HomeFactory.createReviews(vm.review).then(function(){
         $state.go('Home');
       });

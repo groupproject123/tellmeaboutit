@@ -4,6 +4,15 @@ var mongoose = require('mongoose');
 var Review = mongoose.model('Review');
 var jwt = require('express-jwt');
 
+router.post('/',function(req,res,next){
+  console.log(req.body);
+  var description = new Review(req.body);
+  description.save(function(err,result){
+    if(err) return next(err);
+    res.send(result);
+  });
+});
+
 //DELETE Review from the database.
 router.delete('/:id', function(req, res, next){
   Review.remove({_id: req.params.id}, function(err, result){
@@ -13,7 +22,17 @@ router.delete('/:id', function(req, res, next){
 });
 
 router.get('/:id', function(req, res, next){
+  console.log(req.params.id);
   Review.findOne({_id: req.params.id}, function(err, result){
+    if(err) return next(err);
+    res.send(result);
+  });
+});
+
+
+
+router.get('/:id',function(req,res,next){
+  Review.findOne({_id:req.params.id}, function(err,result){
     if(err) return next(err);
     res.send(result);
   });
@@ -34,14 +53,7 @@ router.get('/', function(req,res,next){
   });
 });
 
-router.post('/',function(req,res,next){
-  console.log(req.body);
-  var description = new Review(req.body);
-  description.save(function(err,result){
-    if(err) return next(err);
-    res.send(result);
-  });
-});
+
 
 
 module.exports = router;

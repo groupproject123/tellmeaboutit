@@ -2,7 +2,7 @@
 	'use strict';
 	angular.module('app', ['ui.router','ngMaterial'])
 	.config(Config);
-	function Config($stateProvider, $urlRouterProvider, $mdThemingProvider) {
+	function Config($stateProvider, $urlRouterProvider, $mdThemingProvider, $httpProvider) {
 		$mdThemingProvider.theme('default')
 		.primaryPalette('amber', {
 			'default': '400', // by default use shade 400 from the pink palette for primary intentions
@@ -12,8 +12,8 @@
 		})
 		// If you specify less than all of the keys, it will inherit from the
 		// default shades
-		.accentPalette('teal', {
-			'default': '200' // use shade 200 for default, and keep all other shades the same
+		.accentPalette('indigo', {
+			'default': '600' // use shade 200 for default, and keep all other shades the same
 		});
 
 		$stateProvider.state('Home',{
@@ -32,6 +32,10 @@
 			url: '/detailreview/:id',
 			templateUrl: 'views/detailreview.html'
 		});
+
+		$urlRouterProvider.otherwise('/');
+		$httpProvider.interceptors.push('AuthInterceptor');
+
 	//	$urlRouterProvider.otherwise('/');
 	}
 })();
