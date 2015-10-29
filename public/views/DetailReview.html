@@ -8,7 +8,7 @@
 						<h2 class="md-title">Review: {{vm.review.description}}</h2>
 					</div>
 					<div class="md-actions" layout="row" layout-align="end center">
-						<md-button ui-sref="EditReview({id: a._id})" class="md-accent md-raised">Edit this Review</md-button>
+						<md-button ui-sref="EditReview({id: vm.review._id})" class="md-accent md-raised">Edit this Review</md-button>
 						<!-- <md-button ng-click="vm.startEdit(a._id);" class="md-accent md-raised">Edit this Review</md-button> -->
 					</div>
 			</div>
@@ -19,11 +19,12 @@
 	<div style="text-align:center;">
 		<md-button class="md-accent md-raised" ng-show="!addComment" ng-click="addComment = true;">Add Comment</md-button>
 
-		<md-content class="form-inline" ng-show="addComment">
-			<input type='text' class="form-control" ng-model="vm.newComment" placeholder="Comment...">
+		<md-input-container ng-show="addComment">
+			<input type='text' ng-model="vm.newComment" placeholder="Comment...">
+			<br><br><br>
 			<md-button  class="md-accent md-raised" ng-click="addComment = false; vm.addComment();">Submit</md-button>
 			<md-button class="md-accent md-raised" ng-click="addComment = false;">Cancel</md-button>
-		</md-content>
+		</md-input-container>
 	</div>
 </div>
 </div>

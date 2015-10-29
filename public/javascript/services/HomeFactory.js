@@ -16,6 +16,15 @@
 		};
 
 
+		o.editReview = function(newReviewObj, reviewId){
+			var q = $q.defer();
+			newReviewObj.reviewId = reviewId;
+			$http.put('/api/review/', newReviewObj).then(function(res){
+				q.resolve(res.data);
+			});
+			return q.promise;
+		};
+
 
 		o.createReviews = function(review){
 			console.log(review);

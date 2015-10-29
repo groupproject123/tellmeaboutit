@@ -2,23 +2,24 @@
 	'use strict';
 	angular.module('app')
 	.controller('EditController', EditController);
-  EditController.$inject = ["HomeFactory", "$state", "$stateParams"]; //Inject dependencies
 	function EditController(HomeFactory, $state, $stateParams) {
 		var vm = this;
+		vm.newReview = {};
 
-    console.log($stateParams.id);
-    if(!$stateParams.id){
-      console.log("Didn't find the id");
-    }else{
-      HomeFactory.getReviews($stateParams.id).then(function(res){
-        vm.newReview = res;  //the newReview can be named different, because I'm deffined it here to use it later.
-      });
-    }
+    // console.log($stateParams.id);
+    // if(!$stateParams.id){
+    //   console.log("Didn't find the id");
+    // }else{
+    //   HomeFactory.getReviews($stateParams.id).then(function(res){
+    //     vm.newReview = res;  //the newReview can be named different, because I'm deffined it here to use it later.
+    //   });
+    // }
 
 
     vm.editReview = function(){
       console.log(vm.newReview);
       HomeFactory.editReview(vm.newReview).then(function(res){
+				$state.go("Home");
 
       });
     };
