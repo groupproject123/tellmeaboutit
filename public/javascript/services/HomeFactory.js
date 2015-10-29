@@ -66,6 +66,7 @@
 		};
 
 		o.deleteComment = function(comment){
+			var q = $q.defer();
 			$http.delete('/api/comments/' + comment._id).success(function(res){
 				//console.log(comment._id);
 				q.resolve();

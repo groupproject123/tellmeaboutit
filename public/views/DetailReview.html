@@ -1,18 +1,29 @@
 <div ng-controller="DetailReviewController as vm">
-	<div flex-offset="10">
+	<!-- <div flex-offset="10"> -->
 	<div class="md-actions" layout="row" layout-align="end center">
-		<md-card ng-repeat='a in vm.reviews'>
-				<img ng-src="{{a.image}}" class="md-card-image img-responsive"/>
+		<div flex="20">
+		</div>
+	<div flex="">
+	<!-- <div class="md-actions" layout="row" layout-align="end center"> -->
+		<md-card>
+				<img ng-src="{{vm.review.image}}" class="md-card-image img-responsive"/>
 				<md-card-content>
-					<h1 class="md-title">Product Name/Brand: {{a.name}}</h1>
-					<h2>Rating: {{a.rating}}/5 Points</h2>
-					<h2>Review: {{a.description}}</h2>
+					<h1>Product Name/Brand: {{vm.review.name}}</h1>
+					<h2>Rating: {{vm.review.rating}}/5 Points</h2>
+					<h4>Review: {{vm.review.description}}</h2>
+
 				</md-card-content>
 				<div class="md-actions" layout="row" layout-align="end center">
 					<md-button ui-sref="EditReview({id: a._id})" class="md-accent md-raised">Edit this Review</md-button>
 				</div>
 			</md-card>
+	<!-- </div> -->
 	</div>
+	<div flex="20">
+	</div>
+</div>
+
+
 
 <!-- ADD COMMENT -->
 	<div style="text-align:center;">
@@ -25,9 +36,14 @@
 			<md-button class="md-accent md-raised" ng-click="addComment = false;">Cancel</md-button>
 
 	</div>
+	<br>
+	<br>
 
 <!-- DISPLAY COMMENTS  -->
-<div class="md-actions" layout="row" layout-align="end center">
+<div class="md-actions" layout="colum" layout-align="end center">
+<div flex="10">
+</div>
+<div flex="">
 		<md-card ng-repeat="c in vm.comments">
 			<md-content class="well container" layout-align="center">
 			<h6>Posted By:{{c.user}}</h6>
@@ -38,7 +54,9 @@
 	</md-card>
 	</div>
 
-
-
+<div flex="10">
 </div>
+</div>
+
+<!-- </div> -->
 </div>

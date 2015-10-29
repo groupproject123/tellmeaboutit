@@ -1,6 +1,6 @@
 <div ng-controller="EditController as vm" layout="column" ng-cloak>
   <br>
-  <h1 style="color:Gray; text-align:center;">Edit your Review here!</h1>
+  <h1 style="color:Black; text-align:center;">Edit your Review here!</h1>
   <br>
   <div layout="row" layout-wrap>
     <div flex="10">
@@ -30,11 +30,12 @@
           <label>Review Description</label>
           <textarea ng-model="vm.newReview.description" type="text" placeholder="{{vm.takeToEdit.description}}" ng-required="true"></textarea>
         </md-input-container>
-        <div>
+        <div layout="row">
           <md-button class="md-accent md-raised " ng-click="vm.editReview();">Submit</md-button>
           <md-button class="md-accent md-raised " ui-sref="Home">Cancel</md-button>
         </div>
       </md-content>
+
 
   </div>
 <div flex="10">

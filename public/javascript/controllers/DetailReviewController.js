@@ -10,19 +10,20 @@ console.log(vm.comment);
 		if(!$stateParams.id) $state.go('Home');//This means, is this Id exists, run the function inside.
 		console.log($stateParams.id);
    HomeFactory.getReviewById($stateParams.id).then(function(res){
-    vm.review = res;   //at this point I am creating a new variable.
+   vm.review = res;   //at this point I am creating a new variable.
    });
 
-	 HomeFactory.getComments().then(function(res){
-		 console.log(res);
-		 vm.comments = res;
+	 HomeFactory.getComments().then(function(allComment){
+		 console.log(allComment);
+		 vm.comments = allComment;
 	 });
 
 		vm.addComment = function(){
+		//	console.log(vm.review._id);
 		  HomeFactory.createComment(vm.review._id, vm.newComment).then(function(res){
 				vm.newComment = {};
 				vm.review.comments.push(res);
-				console.log(res);
+				$state.go('DetailReview');
 		  });
 		};
 
