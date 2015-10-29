@@ -34,14 +34,19 @@ router.get('/:id', function(req, res, next){
 router.get('/:id',function(req,res,next){
   Review.findOne({_id:req.params.id}, function(err,result){
     if(err) return next(err);
+    if(!result) return next("Could not find that review!!");
     res.send(result);
   });
 });
 
 router.put('/', function(req, res, next){
-  console.log(req.body);
-  Review.update({_id: req.body.reviewId}, req.body.edittedReview, function(err, result){
+  //console.log(req.body.reviewId);
+  var newReview = req.body;
+  console.log(newReview.reviewId);
+  Review.update({_id: req.body.reviewId}, newReview, function(err, result){
     if(err)return next(err);
+    if(!result) return next({err:"The review was not found."});
+    res.send(result);
   });
 });
 
