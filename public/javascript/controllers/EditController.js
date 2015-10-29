@@ -15,7 +15,7 @@
     //   });
     // }
 
-
+		//
     vm.editReview = function(){
       console.log(vm.newReview);
       HomeFactory.editReview(vm.newReview).then(function(res){

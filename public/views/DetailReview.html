@@ -1,5 +1,5 @@
 <div ng-controller="DetailReviewController as vm">
-<<<<<<< HEAD
+
 	<!-- <div flex-offset="10"> -->
 	<div class="md-actions" layout="row" layout-align="end center">
 		<div flex="20">
@@ -15,7 +15,7 @@
 
 				</md-card-content>
 				<div class="md-actions" layout="row" layout-align="end center">
-					<md-button ui-sref="EditReview({id: a._id})" class="md-accent md-raised">Edit this Review</md-button>
+					<md-button ui-sref="EditReview({id: vm.review._id})" class="md-accent md-raised">Edit this Review</md-button>
 				</div>
 			</md-card>
 	<!-- </div> -->
@@ -23,44 +23,18 @@
 	<div flex="20">
 	</div>
 </div>
-=======
-	<div layout="row" layout-wrap>
-
-					<img ng-src="{{vm.review.image}}" class="md-card-image img-responsive"/>
-					<div>
-						<h1 class="md-title">Product Name/Brand: {{vm.review.name}}</h1>
-						<h2 class="md-title">Rating: {{vm.review.rating}}/5 Points</h2>
-						<h2 class="md-title">Review: {{vm.review.description}}</h2>
-					</div>
-					<div class="md-actions" layout="row" layout-align="end center">
-						<md-button ui-sref="EditReview({id: vm.review._id})" class="md-accent md-raised">Edit this Review</md-button>
-						<!-- <md-button ng-click="vm.startEdit(a._id);" class="md-accent md-raised">Edit this Review</md-button> -->
-					</div>
-			</div>
->>>>>>> 5861a7b41ac0d9de3c22bcbca8bc34e540f8e14d
-
 
 
 <!-- ADD COMMENT -->
 	<div style="text-align:center;">
 		<md-button class="md-accent md-raised" ng-show="!addComment" ng-click="addComment = true;">Add Comment</md-button>
-<<<<<<< HEAD
+
 		<md-content class="form-inline" ng-show="addComment"></md-content>
 		<md-input-container layout-align="center">
 			<input type='text' class="form-control" ng-model="vm.newComment" placeholder="Comment...">
 		</md-input-container>
 			<md-button  class="md-accent md-raised" ng-click="addComment = false; vm.addComment();">Submit</md-button>
 			<md-button class="md-accent md-raised" ng-click="addComment = false;">Cancel</md-button>
-
-=======
-
-		<md-input-container ng-show="addComment">
-			<input type='text' ng-model="vm.newComment" placeholder="Comment...">
-			<br><br><br>
-			<md-button  class="md-accent md-raised" ng-click="addComment = false; vm.addComment();">Submit</md-button>
-			<md-button class="md-accent md-raised" ng-click="addComment = false;">Cancel</md-button>
-		</md-input-container>
->>>>>>> 5861a7b41ac0d9de3c22bcbca8bc34e540f8e14d
 	</div>
 	<br>
 	<br>
